@@ -7,16 +7,19 @@ import Header from "./component/Header.jsx";
 import Signup from "./component/Signup.jsx";
 function App() {
   
-  const[profile, setProfile] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(() => Boolean(localStorage.getItem("token")));
 
-  // const userDetails = JSON.parse(localStorage.getItem("user"));
-  // console.log(userDetails);
-  // if(userDetails){
-  //   const {fullname, email, password} = userDetails;
-  //   setProfile({fullname, email, password});
-  //   setIsLoggedIn(true);
-  // }
+  const [profile, setProfile] = useState( () =>{
+    const details = JSON.parse(localStorage.getItem("user"));
+    return details;
+  })
+  const [isLoggedIn, setIsLoggedIn] = useState(() =>{
+      const details = JSON.parse(localStorage.getItem("user"));
+      if(details){
+        return details.token;
+      }
+      return false;
+  })
+
   
   return (
     <BrowserRouter>
