@@ -21,7 +21,7 @@ function App() {
   })
 
   
-  return (
+  return ( 
     <BrowserRouter>
       <UserContext.Provider value={{profile, setProfile, isLoggedIn, setIsLoggedIn}}>
         <Header/>
